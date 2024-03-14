@@ -1,0 +1,37 @@
+<div *ngIf="residents" class="w-screen flex flex-wrap justify-center">
+  <div class="m-3" *ngFor="let resi of residents | paginate: { itemsPerPage: 4, currentPage: page }" >
+    <div class="w-[308px] sm:w-[430px] h-60 sm:h-52 flex items-center  border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+      <img class="object-cover w-36  h-60 sm:h-52 sm:w-48 rounded-none rounded-s-lg" src={{resi.image}} alt="">
+      <section class="flex flex-col justify-between p-4 leading-normal">
+        <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{resi.name}}</h3>
+        <div class='flex flex-row gap-2 items-center'>
+          <span class='rounded-full block w-[14px] aspect-square {{resi.status}}'></span>
+          <span class='box-border text-white font-bold'>{{resi.status}}</span>
+        </div>
+        <hr/>
+        <ul class="grid gap-1 text-white">
+          <li class="flex gap-1 items-center">
+            <span>Specie:</span>
+            <span class="text-sm text-slate-200">{{resi.species}}</span>
+          </li>
+          <li class="flex gap-1 items-center">
+            <span>Origin:</span>
+            <span class="text-sm text-slate-200">{{resi.origin.name}}</span>
+          </li>
+          <li class="flex gap-1 items-center">
+            <span>Episodes where appear:</span>
+            <span class="text-sm text-slate-200">{{resi.episode.length}}</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="w-full flex justify-center">
+  <pagination-controls (pageChange)="page = $event"
+                        previousLabel="Previous"
+                        nextLabel="Next"                    
+                        class=" bg-white h-8 mb-3 rounded-xl">
+  </pagination-controls>
+</div>

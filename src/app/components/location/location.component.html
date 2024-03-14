@@ -1,0 +1,17 @@
+<article class="m-3 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" *ngIf="location">
+  <h2 class="text-center text-2xl text-[#308840] font-bold">{{location?.name}}</h2>
+  <ul class="flex text-white gap-4">
+    <li class="flex flex-col items-center">
+      <span class="font-bold">Type:</span>
+      <span class="text-sm text-center text-slate-400">{{location?.type}}</span>
+    </li>
+    <li  class="flex flex-col items-center">
+      <span class="font-bold">Dimension:</span>
+      <span class="text-sm text-center text-slate-400">{{location?.dimension || 'unknown'}}</span>
+    </li>
+    <li class="flex flex-col items-center">
+      <span class="font-bold">Population:</span>
+      <span class="text-sm text-center text-slate-400">{{location?.residents.length}}</span>
+    </li>
+  </ul>
+</article>
